@@ -1,0 +1,60 @@
+header{
+    height : 4rem;
+    border-bottom: solid black;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#gameBoard{
+    display: grid;
+    grid-template-areas: "squareOne squareTwo squareThree"
+                    "squareFour squareFive squareSix"
+                    "squareSeven squareEight squareNine";
+    border:black 1px solid;
+    height:40rem;
+    width: 40rem;
+    margin-top: 5rem;
+}
+
+#squareOne{
+grid-template-areas: "squareOne";
+border:black 1px solid;
+}
+#squareTwo{
+    grid-area:"squareTwo";
+    border:black 1px solid;
+}
+#squareThree{
+    grid-area:"squareThree";
+    border:black 1px solid;
+}
+#squareFour{
+    grid-area:"squareFour";
+    border:black 1px solid;
+}
+#squareFive{
+    grid-area:"squareFive";
+    border:black 1px solid;
+}
+#squareSix{
+    grid-area:"squareSix";
+    border:black 1px solid;
+}
+#squareSeven{
+    grid-area:"squareSeven";
+    border:black 1px solid;
+}
+#squareEight{
+    grid-area:"squareEight";
+    border:black 1px solid;
+}
+#squareNine{
+    grid-area:"squareNine";
+    border:black 1px solid;
+}
