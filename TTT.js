@@ -4,30 +4,39 @@ const Gameboard = ( ()=>{
 })();
 
 const gameController= ( ()=>{
+    let isGameOver=false;
     const checkState= ()=>{
         if ( (Gameboard.array[0]===playerOne.sign ) && (Gameboard.array[1]===playerOne.sign) && (Gameboard.array[2]===playerOne.sign)){
-            displayControler.result.textContent=playerOne.name+" has won!"
+            displayControler.result.textContent=playerOne.name+" has won!" ;
+            gameController.isGameOver=true;
         }
          else if ((Gameboard.array[3]===playerOne.sign ) && (Gameboard.array[4]===playerOne.sign) && (Gameboard.array[5]===playerOne.sign)){
-            displayControler.result.textContent=playerOne.name+" has won!"
+            displayControler.result.textContent=playerOne.name+" has won!" ;
+            gameController.isGameOver=true;
         }
         else if ((Gameboard.array[6]===playerOne.sign ) && (Gameboard.array[7]===playerOne.sign) && (Gameboard.array[8]===playerOne.sign)){
-            displayControler.result.textContent=playerOne.name+" has won!"
+            displayControler.result.textContent=playerOne.name+" has won!" ;
+            gameController.isGameOver=true;
         } 
         else if ((Gameboard.array[2]===playerOne.sign ) && (Gameboard.array[4]===playerOne.sign) && (Gameboard.array[6]===playerOne.sign)){
-            displayControler.result.textContent=playerOne.name+" has won!"
+            displayControler.result.textContent=playerOne.name+" has won!" ;
+            gameController.isGameOver=true;
         } 
         else if ((Gameboard.array[0]===playerOne.sign ) && (Gameboard.array[4]===playerOne.sign) && (Gameboard.array[8]===playerOne.sign)){
-            displayControler.result.textContent=playerOne.name+" has won!"
+            displayControler.result.textContent=playerOne.name+" has won!" ;
+            gameController.isGameOver=true;
         } 
         else if ((Gameboard.array[0]===playerOne.sign ) && (Gameboard.array[3]===playerOne.sign) && (Gameboard.array[6]===playerOne.sign)){
-            displayControler.result.textContent=playerOne.name+" has won!"
+            displayControler.result.textContent=playerOne.name+" has won!" ;
+            gameController.isGameOver=true;
         }
         else if ((Gameboard.array[1]===playerOne.sign ) && (Gameboard.array[4]===playerOne.sign) && (Gameboard.array[7]===playerOne.sign)){
-            displayControler.result.textContent=playerOne.name+" has won!"
+            displayControler.result.textContent=playerOne.name+" has won!" ;
+            gameController.isGameOver=true;
         }
         else if ((Gameboard.array[2]===playerOne.sign ) && (Gameboard.array[5]===playerOne.sign) && (Gameboard.array[8]===playerOne.sign)){
-            displayControler.result.textContent=playerOne.name+" has won!"
+            displayControler.result.textContent=playerOne.name+" has won!" ;
+            gameController.isGameOver=true;
         }
 
 
@@ -35,29 +44,37 @@ const gameController= ( ()=>{
 
 
         else if ((Gameboard.array[3]===playerTwo.sign ) && (Gameboard.array[4]===playerTwo.sign) && (Gameboard.array[5]===playerTwo.sign)){
-            displayControler.result.textContent=playerTwo.name+" has won!"
+            displayControler.result.textContent=playerTwo.name+" has won!" ;
+            gameController.isGameOver=true;
         }
         else if ((Gameboard.array[6]===playerTwo.sign ) && (Gameboard.array[7]===playerTwo.sign) && (Gameboard.array[8]===playerTwo.sign)){
-            displayControler.result.textContent=playerTwo.name+" has won!"
+            displayControler.result.textContent=playerTwo.name+" has won!" ;
+            gameController.isGameOver=true;
         } 
         else if ((Gameboard.array[2]===playerTwo.sign ) && (Gameboard.array[4]===playerTwo.sign) && (Gameboard.array[6]===playerTwo.sign)){
-            displayControler.result.textContent=playerTwo.name+" has won!"
+            displayControler.result.textContent=playerTwo.name+" has won!" ;
+            gameController.isGameOver=true;
         } 
         else if ((Gameboard.array[0]===playerTwo.sign ) && (Gameboard.array[4]===playerTwo.sign) && (Gameboard.array[8]===playerTwo.sign)){
-            displayControler.result.textContent=playerTwo.name+" has won!"
+            displayControler.result.textContent=playerTwo.name+" has won!" ;
+            gameController.isGameOver=true;
         } 
         else if ((Gameboard.array[0]===playerTwo.sign ) && (Gameboard.array[3]===playerTwo.sign) && (Gameboard.array[6]===playerTwo.sign)){
-            displayControler.result.textContent=playerTwo.name+" has won!"
+            displayControler.result.textContent=playerTwo.name+" has won!" ;
+            gameController.isGameOver=true;
         }
         else if ((Gameboard.array[1]===playerTwo.sign ) && (Gameboard.array[4]===playerTwo.sign) && (Gameboard.array[7]===playerTwo.sign)){
-            displayControler.result.textContent=playerTwo.name+" has won!"
+            displayControler.result.textContent=playerTwo.name+" has won!" ;
+            gameController.isGameOver=true;
         }
         else if ((Gameboard.array[2]===playerTwo.sign ) && (Gameboard.array[5]===playerTwo.sign) && (Gameboard.array[8]===playerTwo.sign)){
-            displayControler.result.textContent=playerTwo.name+" has won!"
+            displayControler.result.textContent=playerTwo.name+" has won!" ;
+            gameController.isGameOver=true;
         }
         /////////////////////////////////////////////////////////// Checking if its a Tie
         else if ( Gameboard.array.every(square => ( square === playerTwo.sign || square===playerOne.sign ) ) ){
-            displayControler.result.textContent="its a tie!"
+            displayControler.result.textContent="its a tie!";
+            gameController.isGameOver=true;
         }       
     };
     const resetButton = document.querySelector("#reset");
@@ -65,19 +82,22 @@ const gameController= ( ()=>{
         Gameboard.array=["","","","","","","","",""];
        displayControler.squares.forEach(square=>square.textContent=" ")
        displayControler.whoTurn.textContent="";
+       displayControler.result.textContent="";
+      gameController.isGameOver=false;
 
     };
     resetButton.addEventListener("click",e=>_resetGame(e));
 
-    return {checkState}
+    return {checkState,isGameOver}
 })();
 
 const displayControler = (()=>{
     const grid = document.querySelector("#gameBoard");
     const squares = Array.from(grid.querySelectorAll(".square"));
     const whoTurn= document.querySelector("#turn");
-    const result = document.querySelector("#result")
+    const result = document.querySelector("#result");
     grid.addEventListener("click",e=>{
+        if (gameController.isGameOver===false){
         if(e.target!==e.currentTarget){
             result.textContent="";
             displayTurn();
@@ -95,7 +115,7 @@ const displayControler = (()=>{
              }
              gameController.checkState();   
        };
-     });
+     } });
 
      const displayTurn= ()=>{
          if(playerOne.turn===true){
@@ -104,8 +124,6 @@ const displayControler = (()=>{
          else {
              whoTurn.textContent=playerOne.name+"'s turn"}
      }
-
-
 
      return {squares,whoTurn,result}
 }) ();

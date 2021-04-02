@@ -1,8 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+:root{
+    font-family: 'Press Start 2P', cursive;
+}
+
+body{
+    background-color:black;
+    text-align: center;
+}
+
 header{
+    color: orange;
     height : 4rem;
-    border-bottom: solid black;
+    border-bottom: orange solid;
     margin-left: auto;
     margin-right: auto;
+    text-align: center;
+}
+#turn{
+    color: #ffa500; 
+    text-align: center;
 }
 
 #container{
@@ -16,45 +33,92 @@ header{
     grid-template-areas: "squareOne squareTwo squareThree"
                     "squareFour squareFive squareSix"
                     "squareSeven squareEight squareNine";
-    border:black 1px solid;
+    border:none;
     height:40rem;
     width: 40rem;
     margin-top: 5rem;
-}
+    text-align: center;
 
+}
+.allSquare { 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffa500;
+    font-size: 60px
+    
+}
+#result{
+    color: #ffa500; 
+    text-align: center;
+    margin-top: 15px;
+}
+#reset{
+    background-color: transparent;
+    color: orange;
+    border: orange solid 1px;
+    scale: 1.5;
+    margin-top: 15px;
+}
+#reset:hover{
+    background-color:#292929 ;
+}
+#reset:active{
+    border:none;
+    scale:1.6;
+}
+#footer{
+    color: #ffa500; 
+    font-size: small;
+}
+.allSquare:hover{
+    background-color: #292929;
+}
 #squareOne{
-grid-template-areas: "squareOne";
-border:black 1px solid;
+    grid-template-areas: "squareOne";
+    border: 1px solid;
+    border-left: none;
+    border-top: none;
 }
 #squareTwo{
     grid-area:"squareTwo";
-    border:black 1px solid;
+    border:1px solid;
+    border-top: none;
 }
 #squareThree{
     grid-area:"squareThree";
-    border:black 1px solid;
+    border: 1px solid;
+    border-right: none;
+    border-top: none;
 }
 #squareFour{
     grid-area:"squareFour";
-    border:black 1px solid;
+    border: 1px solid;
+    border-left: none;
 }
 #squareFive{
     grid-area:"squareFive";
-    border:black 1px solid;
+    border: 1px solid;
 }
 #squareSix{
     grid-area:"squareSix";
-    border:black 1px solid;
+    border: 1px solid;
+    border-right: none;
 }
 #squareSeven{
     grid-area:"squareSeven";
-    border:black 1px solid;
+    border: 1px solid;
+    border-left: none;
+    border-bottom: none;
 }
 #squareEight{
     grid-area:"squareEight";
-    border:black 1px solid;
+    border: 1px solid;
+    border-bottom: none;
 }
 #squareNine{
     grid-area:"squareNine";
-    border:black 1px solid;
+    border: 1px solid;
+    border-right: none;
+    border-bottom: none;
 }
